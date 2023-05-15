@@ -1,0 +1,21 @@
+
+{% extends 'Main.html' %}
+
+
+{% block schedule %}
+  <div class="container">
+        <div class="text-center">
+            <h2 class="section-heading text-uppercase">Удалить маршрут </h2>
+            <h3 class="section-subheading text-muted">Это форма для удаления маршрута с определенным расписанием </h3>
+            <h4 class="section-subheading ">Вы уверены, что хотите удалить маршрут № {{ sch.RideId }} ?</h4>
+        </div>
+                <form action="{% url 'schedules_delete_url' sch.pk %}" method="post" class="row row-centered row-conformity " >
+                {% csrf_token %}
+                    <div class="text-center">
+                        <div id="success"></div>
+                        <button class="btn btn-danger btn-xl text-uppercase" id="sendMessageButton" type="submit">Удалить</button>
+                    </div>
+                </form>
+
+  </div>
+{% endblock %}
